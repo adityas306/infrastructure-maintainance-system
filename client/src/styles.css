@@ -1,0 +1,266 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    margin:0;
+    font-family:Inter,Arial,sans-serif;
+    background:#DBE2EF;
+    color:#172033;
+}
+.nav{
+    height:64px;
+    background:#111827;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.brand{
+    font-size:22px;
+    font-weight:800;
+}
+.links{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.links a{
+    color:white;
+    text-decoration:none;
+}
+.user{
+    opacity:.8;
+    font-size:14px;
+}
+.container{max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+}
+.hero{
+    background:#111827;
+    color:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+}
+.hero h1{
+    margin:0 0 8px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+}
+.stats{
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    margin-bottom:22px;
+}
+.card{
+    background:#F9F7F7;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 8px 24px rgba(20,30,50,0.07);
+}
+
+.stat {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat:hover {
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.stat:hover strong {
+    transform: scale(1.08);
+}
+
+.stat strong {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size:34px;
+    margin-top:10px;
+}
+
+.form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:25px;
+}
+.form h1,.form h2{
+    margin:0;
+}
+.two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:20px;
+}
+.two .card{
+    min-width:0;
+}
+input,textarea,select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d5dae5;
+    border-radius:9px;
+    font:inherit;
+    background:#F9F7F7;
+}
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+button,.button{
+    border:0;
+    background:#2563eb;
+    color:white;
+    padding:11px 16px;
+    border-radius:9px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+}
+.button.secondary,button.secondary{
+    background:#475569;
+}
+.danger{
+    background:#ef1717;
+}
+.small{
+    padding:7px 11px;
+}
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}.row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+}
+.badge{
+    display:inline-block;
+    background:#e2e8f0;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800
+}
+.working{
+    background:#dcfce7;
+    color:#166534
+}
+.fault{
+    background:#fee2e2;
+    color:#cd1b1b;
+}
+.maintenance{
+    background:#fef3c7;
+    color:#92400e;
+}
+.error{
+    background:#fee2e2;
+    color:#c51f1f;
+    padding:10px;
+    border-radius:8px
+}
+.notice{
+    background:#e0f2fe;
+    padding:10px;
+    border-radius:8px;
+}
+.late{
+    color:#eb1a1a;
+}
+.auth{
+    min-height:80vh;
+    display:grid;
+    place-items:center;
+}
+.auth .card{
+    width:min(420px,100%);
+}
+.center{
+    text-align:center;
+}
+.center canvas{
+    display:block;
+    margin:20px auto;
+}
+.workflow{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.workflow span{
+    background:#eef2ff;
+    padding:10px 14px;
+    border-radius:10px;
+}
+.map{
+    padding:10px;
+}
+.leaflet-container{
+    border-radius:12px;
+}
+.link{
+    color:#2563eb;
+}
+.password-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-box input {
+  padding-right: 70px;
+}
+
+.show-password {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  color: #2563eb;
+  padding: 6px;
+  font-size: 13px;
+}
+
+.show-password:hover {
+  background: transparent;
+}
+
+/* For Responsiness */
+@media(max-width:750px){
+    .nav{
+        height:auto;
+        padding:15px;
+        align-items:flex-start;
+        gap:12px;
+        flex-direction:column;
+    }
+    .links{
+        gap:10px;
+    }
+    .two{
+        grid-template-columns:1fr;
+    }
+    .container{
+        margin-top:20px;
+    }
+    .workflow b{
+        display:none;
+    }
+}
+
