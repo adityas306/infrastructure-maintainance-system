@@ -74,7 +74,7 @@ export default function Assets({ user }) {
               <Link className="button secondary" to={`/report?asset=${a._id}`}>Report Fault</Link>
               
               {user.role === "admin" && (
-                <button className="danger" onClick={() => handleDelete(asset._id)}> Delete </button>
+                <button className="danger" onClick={() => handleDelete(a._id)}> Delete </button>
               )}
             </div>
           </div>

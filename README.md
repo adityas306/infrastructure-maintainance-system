@@ -32,7 +32,6 @@ QR asset identification → fault report → admin assignment → technician upd
 ```bash
 cd server
 npm install
-cp .env.example .env
 npm run dev
 ```
 
@@ -51,7 +50,7 @@ Default API: http://localhost:5000/api
 Register users from the UI. To make an admin/technician account, change the `role` field in MongoDB to `admin` or `technician`.
 
 ## Main demo
-1. Register/login.
+1. Register/login as well as forget password request.
 2. Admin: create an asset and copy its QR value.
 3. Open the QR page and print/show the QR.
 4. Scan the QR using the Report Fault page.

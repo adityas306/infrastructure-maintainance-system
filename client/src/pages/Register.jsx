@@ -9,8 +9,21 @@ export default function Register({ setUser }) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+
   async function submit(e) {
     e.preventDefault();
+
+    const allowedDomains = ["smslucknow.ac.in","aktu.ac.in","gmail.com","yahoo.com","outlook.com" , "@hotmail.com","@icloud.com",
+                            "@live.com","@msn.com","@proton.me","@protonmail.com","@zoho.com","@aol.com","@mail.com",
+                            "@gmx.com","@yandex.com","@rediffmail.com","@mail.ru"];
+    const emailDomain = form.email.toLowerCase().split("@")[1];
+    
+    if (!emailDomain || !allowedDomains.includes(emailDomain)) {
+      setError("Invalid Domain , Please use an allowed email domain.");
+      return;
+    }
+  
+
     try {
       const { data } = await api.post("/auth/register", form);
       localStorage.setItem("token", data.token);

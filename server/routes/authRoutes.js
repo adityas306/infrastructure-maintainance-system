@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-
+const allowedDomains = process.env.ALLOWED_EMAIL_DOMAINS.split(",").map(domain => domain.trim().toLowerCase());
 const router = express.Router();
 
 function sign(user) {
@@ -15,11 +15,21 @@ function sign(user) {
 
 router.post("/register", async (req, res) => {
   try {
+    
     const { name, email, password } = req.body;
-    if (!name || !email || !password) return res.status(400).json({ message: "All fields are required" });
+    if (!name || !email || !password){
+       return res.status(400).json({ message: "All fields are required" });
+    }
 
+    const emailDomain = email.toLowerCase().split("@")[1];
+    if (!emailDomain || !allowedDomains.includes(emailDomain)) {
+      return res.status(400).json({message: "This email domain is not allowed. Kindly Enter Valid Email"});
+    }
+    
     const exists = await User.findOne({ email });
-    if (exists) return res.status(409).json({ message: "Email already registered" });
+    if (exists){ 
+      return res.status(409).json({ message: "Email already registered" });
+    }
 
     const hash = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, password: hash });
