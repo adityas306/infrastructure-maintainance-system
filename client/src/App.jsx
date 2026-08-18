@@ -1,6 +1,6 @@
 import React from "react";
 import {  useEffect, useState } from "react";
-import { BrowserRouter , Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter , Link, NavLink, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import api from "./api";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -11,7 +11,7 @@ import QRAsset from "./pages/QRAsset";
 import Tickets from "./pages/Tickets";
 import MapPage from "./pages/MapPage";
 import ForgotPassword from "./pages/ForgotPassword";
-
+import "./nav.css";
 function Layout({ user, setUser }) {
   const navigate = useNavigate();
 
@@ -22,20 +22,56 @@ function Layout({ user, setUser }) {
   }
 
   return (
-    <div>
-      <nav className="nav">
-        <div className="brand">InfraCare</div>
-        <div className="links">
-          <Link to="/">Dashboard</Link>
-          <Link to="/assets">Assets</Link>
-          <Link to="/report">Report Fault</Link>
-          <Link to="/tickets">Tickets</Link>
-          <Link to="/map">Map</Link>
-          <span className="user">{user.name} ({user.role})</span>
-          <button className="danger small" onClick={logout}>Logout</button>
+    <nav className="nav">
+
+      {/* Logo */}
+      <div  className="brand"  onClick={() => navigate("/")}>
+        InfraCare
+      </div>
+      {/* Navigation Links */}
+      <div className="links">
+        <NavLink  to="/"  end  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
+          Dashboard
+        </NavLink>
+
+        <NavLink  to="/assets"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
+          Assets
+        </NavLink>
+
+        <NavLink  to="/report"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
+          Report Fault
+        </NavLink>
+
+        <NavLink  to="/tickets"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
+          Tickets
+        </NavLink>
+
+        <NavLink  to="/map"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
+          Map
+        </NavLink>
+
+        {/* User */}
+        <div className="user-box">
+          <div className="user-avatar">
+            {user?.name?.charAt(0).toUpperCase()}
+          </div>
+
+          <div className="user-info">
+            <span>{user?.name}</span>
+            <small>{user?.role}</small>
+          </div>
         </div>
-      </nav>
-    </div>
+
+        {/* Logout */}
+        <button
+          className="logout-btn"
+          onClick={logout}
+        >
+          Logout
+        </button>
+
+      </div>
+    </nav>
   );
 }
 

@@ -1,0 +1,151 @@
+ /* MODERN NAVBAR */
+
+.nav {
+  height: 68px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-item {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  color: white;
+  background: #1f2937;
+}
+
+.nav-item.active {
+  color: white;
+  background: #2563eb;
+}
+
+
+/* USER */
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: 10px;
+  padding-left: 14px;
+  border-left: 1px solid #374151;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.user-info span {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.user-info small {
+  color: #94a3b8;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+
+/* LOGOUT */
+
+.logout-btn {
+  border: none;
+  background: #ef1717;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 0 15px;
+  }
+  .links {
+    gap: 2px;
+  }
+  .nav-item {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .user-info {
+    display: none;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .nav {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding: 12px 15px;
+    gap: 10px;
+  }
+  .links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 3px;
+  }
+  .user-box {
+    margin-left: 5px;
+  }
+  .user-info {
+    display: none;
+  }
+
+}
