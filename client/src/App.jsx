@@ -33,19 +33,15 @@ function Layout({ user, setUser }) {
         <NavLink  to="/"  end  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
           Dashboard
         </NavLink>
-
         <NavLink  to="/assets"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
           Assets
         </NavLink>
-
         <NavLink  to="/report"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
           Report Fault
         </NavLink>
-
         <NavLink  to="/tickets"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
           Tickets
         </NavLink>
-
         <NavLink  to="/map"  className={({ isActive }) => isActive ? "nav-item active" : "nav-item"  }>
           Map
         </NavLink>

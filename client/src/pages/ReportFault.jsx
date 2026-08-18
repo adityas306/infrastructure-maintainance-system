@@ -306,44 +306,29 @@ export default function ReportFault() {
 
                   <span>🚨</span>
 
-                  <select
-                    value={form.priority}
-                    onChange={(e) =>
-                      setForm({
-                        ...form,
-                        priority: e.target.value,
-                      })
-                    }
-                  >
+                  <select value={form.priority}  onChange={(e) =>setForm({ ...form,priority: e.target.value,})  }>
                     <option value="LOW">
                       LOW
                     </option>
-
                     <option value="MEDIUM">
                       MEDIUM
                     </option>
-
                     <option value="HIGH">
                       HIGH
                     </option>
-
                     <option value="CRITICAL">
                       CRITICAL
                     </option>
                   </select>
-
                 </div>
-
               </div>
 
               {/* Description */}
 
               <div className="form-group">
-
                 <label>
                   Problem Description <span>*</span>
                 </label>
-
                 <textarea
                   required
                   rows="6"
@@ -356,22 +341,15 @@ export default function ReportFault() {
                     })
                   }
                 />
-
                 <small>
                   Provide enough information so the
                   maintenance team can understand the issue.
                 </small>
-
               </div>
 
               {/* Submit */}
 
-              <button
-                type="submit"
-                className="submit-fault"
-                disabled={!assetId || loading}
-              >
-
+              <button type="submit"  className="submit-fault"  disabled={!assetId || loading}>
                 {loading ? (
                   <>
                     <span className="spinner"></span>
@@ -383,22 +361,16 @@ export default function ReportFault() {
                     <span>→</span>
                   </>
                 )}
-
               </button>
-
               {!assetId && (
                 <p className="submit-help">
                   Please scan or select an asset before
                   submitting the report.
                 </p>
               )}
-
             </form>
-
           </div>
-
         </div>
-
       </div>
     </div>
   );
