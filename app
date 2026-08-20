@@ -108,9 +108,8 @@ export default function App() {
           <Route path="/qr/:value" element={<Protected user={user}><QRAsset /></Protected>} />
           <Route path="/tickets" element={<Protected user={user}><Tickets user={user} /></Protected>} />
           <Route path="/map" element={<Protected user={user}><MapPage /></Protected>} />
-          <Route path="/forgot-password" element={<ForgotPassword />}/>
-          <Route  path="/manage-users"  element={<Protected user={user}> {user?.role === "admin" ? (<ManageUsers />) : (  <Navigate to="/" replace />)} </Protected> }/>
-        </Routes>
+          <Route path="/forgot-password" element={<ForgotPassword />}/></Routes>
+          <Route  path="/manage-users"  element={<Protected user={user}> <ManageUsers /> </Protected> }/>
       </main>
     </>
   );
