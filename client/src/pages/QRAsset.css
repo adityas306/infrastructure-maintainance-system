@@ -1,0 +1,46 @@
+.qr-card {
+  position: relative;
+}
+
+/* =========================
+   LIGHT MODE
+   ========================= */
+
+.qr-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111827;
+}
+
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+[data-theme="dark"] .qr-close-btn {
+  color: #ffffff;
+}
+
+
+/* Optional hover */
+.qr-close-btn:hover {
+  opacity: 0.7;
+}

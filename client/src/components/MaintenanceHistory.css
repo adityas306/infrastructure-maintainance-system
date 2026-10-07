@@ -1,0 +1,346 @@
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.maintenance-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(15, 23, 42, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.maintenance-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 80vh;
+
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #0f172a);
+
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.maintenance-close {
+  position: absolute;
+
+  top: 12px;
+  right: 14px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--text-color, #0f172a);
+
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maintenance-close:hover {
+  background: #f1f5f9;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.maintenance-header {
+  padding: 22px 22px 18px;
+
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.maintenance-header h2 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.maintenance-header > p {
+  margin: 5px 0 16px;
+
+  color: #64748b;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.maintenance-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.maintenance-summary div {
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+.maintenance-summary span {
+  display: block;
+
+  color: #64748b;
+  font-size: 11px;
+}
+
+.maintenance-summary strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.maintenance-content {
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   REPAIR ITEM
+   ========================================================= */
+
+.maintenance-item {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 16px 20px;
+
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.repair-icon {
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+.repair-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.repair-top {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.repair-top strong {
+  font-size: 14px;
+}
+
+.repair-top span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.repair-info {
+  margin-top: 7px;
+}
+
+.repair-info p {
+  margin: 4px 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.repair-info b {
+  color: var(--text-color, #334155);
+}
+
+
+/* =========================================================
+   STATES
+   ========================================================= */
+
+.maintenance-state {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.maintenance-empty-icon {
+  font-size: 35px;
+
+  margin-bottom: 8px;
+}
+
+.maintenance-state strong {
+  display: block;
+
+  color: var(--text-color, #0f172a);
+
+  font-size: 15px;
+}
+
+.maintenance-state p {
+  margin: 5px 0 0;
+}
+
+.maintenance-error {
+  padding: 25px;
+
+  text-align: center;
+
+  color: #dc2626;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] .maintenance-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .maintenance-modal {
+  background: #111827;
+  color: #e5e7eb;
+
+  border-color: #263244;
+
+  box-shadow: none;
+}
+
+[data-theme="dark"] .maintenance-close {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .maintenance-close:hover {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .maintenance-header {
+  border-color: #263244;
+}
+
+[data-theme="dark"] .maintenance-header > p,
+[data-theme="dark"] .maintenance-summary span,
+[data-theme="dark"] .repair-top span,
+[data-theme="dark"] .repair-info p,
+[data-theme="dark"] .maintenance-state {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .maintenance-summary div {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .maintenance-item {
+  border-color: #263244;
+}
+
+[data-theme="dark"] .repair-icon {
+  background: #172554;
+}
+
+[data-theme="dark"] .repair-info b,
+[data-theme="dark"] .maintenance-state strong {
+  color: #e5e7eb;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .maintenance-overlay {
+    padding: 12px;
+  }
+
+  .maintenance-modal {
+    max-height: 90vh;
+  }
+
+  .maintenance-header {
+    padding: 20px 17px 16px;
+  }
+
+  .maintenance-item {
+    padding: 14px 16px;
+  }
+
+  .repair-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+}

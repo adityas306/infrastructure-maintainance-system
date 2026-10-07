@@ -1,0 +1,1406 @@
+/* =========================================================
+   TICKETS PAGE
+   ========================================================= */
+
+.tickets-page {
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.tickets-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.tickets-header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 750;
+  color: #111827;
+}
+
+.tickets-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.ticket-count {
+  padding: 9px 15px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADING / EMPTY
+   ========================================================= */
+
+.tickets-loading {
+  padding: 50px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.ticket-empty {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.empty-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.ticket-empty h3 {
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.ticket-empty p {
+  margin: 0;
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   TICKET GRID
+   ========================================================= */
+
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   TICKET CARD
+   ========================================================= */
+
+.ticket-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+  border-color: #d1d5db;
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.ticket-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 12px;
+}
+
+.ticket-card-top h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  line-height: 1.3;
+  color: #111827;
+  word-break: break-word;
+}
+
+.ticket-id {
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   PRIORITY
+   ========================================================= */
+
+.ticket-priority {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.priority-low {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.priority-medium {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.priority-high {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.priority-critical {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   TICKET IMAGE
+   ========================================================= */
+
+.ticket-image {
+  width: 100%;
+  height: 185px;
+  background: #f3f4f6;
+  overflow: hidden;
+}
+
+.ticket-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   TICKET INFO
+   ========================================================= */
+
+.ticket-info {
+  padding: 16px 18px 0;
+}
+
+.ticket-info-block > span,
+.ticket-description > span,
+.ticket-meta span,
+.ticket-sla > span,
+.assignment-status > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.ticket-info-block strong {
+  display: block;
+  color: #111827;
+  font-size: 14px;
+}
+
+.ticket-info-block p {
+  margin: 3px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.ticket-description {
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ticket-description p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.55;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.ticket-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.ticket-meta > div {
+  min-width: 0;
+}
+
+.ticket-meta strong {
+  display: block;
+  color: #374151;
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.status-open {
+  color: #2563eb !important;
+}
+
+.status-assigned {
+  color: #d97706 !important;
+}
+
+.status-in_progress {
+  color: #7c3aed !important;
+}
+
+.status-resolved {
+  color: #059669 !important;
+}
+
+.status-closed {
+  color: #6b7280 !important;
+}
+
+
+/* =========================================================
+   SLA
+   ========================================================= */
+
+.ticket-sla {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 15px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  background: #f8fafc;
+}
+
+.ticket-sla strong {
+  color: #374151;
+  font-size: 12px;
+}
+
+.ticket-sla small {
+  margin-top: 2px;
+  color: #dc2626;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.sla-late {
+  background: #fef2f2;
+}
+
+
+/* =========================================================
+   ASSIGNMENT
+   ========================================================= */
+
+.assignment-status {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #f9fafb;
+}
+
+.assignment-status strong {
+  color: #374151;
+  font-size: 12px;
+}
+
+.assignment-status p {
+  margin: 5px 0 0;
+  color: #dc2626;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.ticket-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 14px 18px 0;
+}
+
+.ticket-actions select,
+.ticket-actions input {
+  min-width: 0;
+  flex: 1;
+  height: 40px;
+  padding: 0 11px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.ticket-actions select:focus,
+.ticket-actions input:focus {
+  border-color: #2563eb;
+}
+
+.ticket-actions button {
+  height: 40px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.ticket-actions button:hover {
+  background: #1d4ed8;
+}
+
+.ticket-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ticket-actions .danger {
+  background: #dc2626;
+}
+
+.ticket-actions .danger:hover {
+  background: #b91c1c;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+   ========================================================= */
+
+.view-ticket-btn {
+  width: calc(100% - 36px);
+  height: 42px;
+  margin: 16px 18px 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 750;
+  transition: 0.2s ease;
+}
+
+.view-ticket-btn:hover {
+  background: #dbeafe;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+
+.ticket-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(4px);
+
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   MAIN MODAL
+   ========================================================= */
+
+.ticket-modal {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   REPAIR MODAL
+   ========================================================= */
+
+.repair-modal {
+  position: relative;
+  width: min(850px, 100%);
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  padding-bottom: 24px;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.ticket-modal-close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+
+  z-index: 5;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #374151;
+
+  cursor: pointer;
+
+  font-size: 27px;
+  line-height: 1;
+
+  transition: 0.2s ease;
+}
+
+.ticket-modal-close:hover {
+  background: #f3f4f6;
+}
+
+.ticket-modal-close:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 25px 55px 20px 25px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.modal-ticket-id {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.modal-header h2 {
+  margin: 0;
+
+  color: #111827;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   MODAL MAIN
+   ========================================================= */
+
+.modal-main {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 25px;
+
+  padding: 24px 25px;
+}
+
+
+/* =========================================================
+   MODAL IMAGE
+   ========================================================= */
+
+.modal-image-section h4 {
+  margin: 0 0 10px;
+
+  color: #374151;
+  font-size: 13px;
+}
+
+.modal-image-section img {
+  display: block;
+
+  width: 100%;
+  height: 300px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   NO IMAGE
+   ========================================================= */
+
+.no-image {
+  min-height: 160px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+
+  background: #f9fafb;
+  color: #9ca3af;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL DETAILS
+   ========================================================= */
+
+.modal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+
+  align-content: start;
+}
+
+.modal-details > div {
+  min-width: 0;
+}
+
+.modal-details span,
+.modal-description > span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.modal-details strong {
+  display: block;
+  color: #111827;
+  font-size: 13px;
+}
+
+.modal-details p {
+  margin: 0;
+
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   MODAL DESCRIPTION
+   ========================================================= */
+
+.modal-description {
+  margin: 0 25px;
+  padding: 16px;
+
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.modal-description p {
+  margin: 0;
+
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   COMPLETED REPAIR
+   ========================================================= */
+
+.completed-repair {
+  margin: 22px 25px 0;
+  padding: 18px;
+
+  border: 1px solid #d1fae5;
+  border-radius: 13px;
+
+  background: #f0fdf4;
+}
+
+.completed-repair h3 {
+  margin: 0 0 16px;
+
+  color: #047857;
+  font-size: 16px;
+}
+
+.repair-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.repair-images > div > span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.repair-images img {
+  display: block;
+
+  width: 100%;
+  height: 210px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.repair-details {
+  margin-top: 15px;
+}
+
+.repair-details p {
+  margin: 6px 0;
+
+  color: #374151;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+   ========================================================= */
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 20px 25px 25px;
+}
+
+
+/* =========================================================
+   REPAIR BUTTON
+   ========================================================= */
+
+.repair-btn {
+  min-height: 43px;
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #15803d;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  transition: 0.2s ease;
+}
+
+.repair-btn:hover {
+  background: #166534;
+}
+
+.repair-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   REPAIR FORM
+   ========================================================= */
+
+.repair-form-group {
+  margin: 20px 25px 0;
+}
+
+.repair-form-group label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #374151;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.repair-form-group input,
+.repair-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  resize: vertical;
+}
+
+.repair-form-group input {
+  height: 42px;
+}
+
+.repair-form-group input:focus,
+.repair-form-group textarea:focus {
+  border-color: #15803d;
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.08);
+}
+
+
+/* =========================================================
+   BEFORE / AFTER REPAIR IMAGES
+   ========================================================= */
+
+.repair-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+
+  margin: 22px 25px 0;
+}
+
+.repair-image-box {
+  min-width: 0;
+}
+
+.repair-image-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 8px;
+}
+
+.repair-image-heading span {
+  color: #374151;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.5px;
+}
+
+.repair-image-heading small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   REPAIR PREVIEW
+   ========================================================= */
+
+.repair-preview {
+  width: 100%;
+  height: 240px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+
+  background: #f8fafc;
+}
+
+.repair-preview > img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   AFTER IMAGE UPLOAD
+   ========================================================= */
+
+.after-upload {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  text-align: center;
+}
+
+.after-upload > span {
+  font-size: 32px;
+}
+
+.after-upload strong {
+  color: #374151;
+  font-size: 13px;
+}
+
+.after-upload small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+.after-upload input {
+  display: none;
+}
+
+.after-preview {
+  border: 1.5px dashed #a7f3d0;
+  background: #f0fdf4;
+}
+
+
+/* =========================================================
+   REMOVE IMAGE
+   ========================================================= */
+
+.remove-image-btn {
+  margin-top: 7px;
+
+  border: none;
+  background: transparent;
+
+  color: #dc2626;
+
+  cursor: pointer;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.remove-image-btn:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   REPAIR SUBMIT
+   ========================================================= */
+
+.repair-submit-row {
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 22px 25px 0;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] .tickets-page,
+body.dark .tickets-page,
+.dark .tickets-page {
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .tickets-header h1,
+body.dark .tickets-header h1,
+.dark .tickets-header h1 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .tickets-header p,
+body.dark .tickets-header p,
+.dark .tickets-header p {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .ticket-count,
+body.dark .ticket-count,
+.dark .ticket-count {
+  background: #1f2937;
+  color: #d1d5db;
+}
+
+
+/* Cards */
+
+[data-theme="dark"] .ticket-card,
+[data-theme="dark"] .ticket-empty,
+body.dark .ticket-card,
+body.dark .ticket-empty,
+.dark .ticket-card,
+.dark .ticket-empty {
+  background: #111827;
+  border-color: #374151;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .ticket-card:hover,
+body.dark .ticket-card:hover,
+.dark .ticket-card:hover {
+  border-color: #4b5563;
+}
+
+
+/* Text */
+
+[data-theme="dark"] .ticket-card-top h3,
+[data-theme="dark"] .ticket-info-block strong,
+[data-theme="dark"] .ticket-meta strong,
+[data-theme="dark"] .ticket-sla strong,
+[data-theme="dark"] .assignment-status strong,
+body.dark .ticket-card-top h3,
+body.dark .ticket-info-block strong,
+body.dark .ticket-meta strong,
+body.dark .ticket-sla strong,
+body.dark .assignment-status strong,
+.dark .ticket-card-top h3,
+.dark .ticket-info-block strong,
+.dark .ticket-meta strong,
+.dark .ticket-sla strong,
+.dark .assignment-status strong {
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .ticket-description p,
+[data-theme="dark"] .ticket-info-block p,
+body.dark .ticket-description p,
+body.dark .ticket-info-block p,
+.dark .ticket-description p,
+.dark .ticket-info-block p {
+  color: #9ca3af;
+}
+
+
+/* Borders */
+
+[data-theme="dark"] .ticket-description,
+body.dark .ticket-description,
+.dark .ticket-description {
+  border-color: #374151;
+}
+
+
+/* SLA */
+
+[data-theme="dark"] .ticket-sla,
+[data-theme="dark"] .assignment-status,
+body.dark .ticket-sla,
+body.dark .assignment-status,
+.dark .ticket-sla,
+.dark .assignment-status {
+  background: #1f2937;
+}
+
+[data-theme="dark"] .sla-late,
+body.dark .sla-late,
+.dark .sla-late {
+  background: #3b1d1d;
+}
+
+
+/* Inputs */
+
+[data-theme="dark"] .ticket-actions select,
+[data-theme="dark"] .ticket-actions input,
+[data-theme="dark"] .repair-form-group input,
+[data-theme="dark"] .repair-form-group textarea,
+body.dark .ticket-actions select,
+body.dark .ticket-actions input,
+body.dark .repair-form-group input,
+body.dark .repair-form-group textarea,
+.dark .ticket-actions select,
+.dark .ticket-actions input,
+.dark .repair-form-group input,
+.dark .repair-form-group textarea {
+  background: #111827;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+
+/* View button */
+
+[data-theme="dark"] .view-ticket-btn,
+body.dark .view-ticket-btn,
+.dark .view-ticket-btn {
+  background: #172554;
+  border-color: #1e40af;
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .view-ticket-btn:hover,
+body.dark .view-ticket-btn:hover,
+.dark .view-ticket-btn:hover {
+  background: #1e3a8a;
+}
+
+
+/* Modal */
+
+[data-theme="dark"] .ticket-modal,
+[data-theme="dark"] .repair-modal,
+body.dark .ticket-modal,
+body.dark .repair-modal,
+.dark .ticket-modal,
+.dark .repair-modal {
+  background: #111827;
+}
+
+[data-theme="dark"] .modal-header,
+body.dark .modal-header,
+.dark .modal-header {
+  border-color: #374151;
+}
+
+[data-theme="dark"] .modal-header h2,
+body.dark .modal-header h2,
+.dark .modal-header h2 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .ticket-modal-close,
+body.dark .ticket-modal-close,
+.dark .ticket-modal-close {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .ticket-modal-close:hover,
+body.dark .ticket-modal-close:hover,
+.dark .ticket-modal-close:hover {
+  background: #1f2937;
+}
+
+
+/* Modal details */
+
+[data-theme="dark"] .modal-details strong,
+[data-theme="dark"] .modal-details p,
+body.dark .modal-details strong,
+body.dark .modal-details p,
+.dark .modal-details strong,
+.dark .modal-details p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .modal-description,
+body.dark .modal-description,
+.dark .modal-description {
+  background: #1f2937;
+}
+
+[data-theme="dark"] .modal-description p,
+body.dark .modal-description p,
+.dark .modal-description p {
+  color: #d1d5db;
+}
+
+
+/* Repair */
+
+[data-theme="dark"] .completed-repair,
+body.dark .completed-repair,
+.dark .completed-repair {
+  background: #052e16;
+  border-color: #166534;
+}
+
+[data-theme="dark"] .completed-repair h3,
+body.dark .completed-repair h3,
+.dark .completed-repair h3 {
+  color: #86efac;
+}
+
+[data-theme="dark"] .repair-details p,
+body.dark .repair-details p,
+.dark .repair-details p {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .repair-form-group label,
+[data-theme="dark"] .repair-image-heading span,
+body.dark .repair-form-group label,
+body.dark .repair-image-heading span,
+.dark .repair-form-group label,
+.dark .repair-image-heading span {
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .repair-preview,
+body.dark .repair-preview,
+.dark .repair-preview {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+[data-theme="dark"] .after-preview,
+body.dark .after-preview,
+.dark .after-preview {
+  background: #052e16;
+  border-color: #166534;
+}
+
+[data-theme="dark"] .after-upload strong,
+body.dark .after-upload strong,
+.dark .after-upload strong {
+  color: #d1d5db;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .tickets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 850px) {
+  .tickets-page {
+    padding: 18px;
+  }
+
+  .tickets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-main {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-image-section img {
+    height: 280px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .tickets-page {
+    padding: 14px;
+  }
+
+  .tickets-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tickets-header h1 {
+    font-size: 23px;
+  }
+
+  .ticket-card-top {
+    padding: 15px;
+  }
+
+  .ticket-info {
+    padding: 14px 15px 0;
+  }
+
+  .ticket-actions {
+    padding: 12px 15px 0;
+  }
+
+  .view-ticket-btn {
+    width: calc(100% - 30px);
+    margin: 14px 15px 15px;
+  }
+
+  .ticket-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .ticket-modal,
+  .repair-modal {
+    max-height: calc(100vh - 20px);
+    border-radius: 14px;
+  }
+
+  .modal-header {
+    padding: 20px 50px 17px 18px;
+  }
+
+  .modal-header h2 {
+    font-size: 19px;
+  }
+
+  .modal-main {
+    padding: 18px;
+  }
+
+  .modal-details {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .modal-description {
+    margin: 0 18px;
+  }
+
+  .completed-repair {
+    margin: 18px;
+  }
+
+  .repair-images,
+  .repair-image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repair-image-grid {
+    margin: 18px;
+  }
+
+  .repair-form-group {
+    margin: 18px;
+  }
+
+  .repair-submit-row {
+    margin: 18px;
+  }
+
+  .modal-footer {
+    padding: 18px;
+  }
+
+  .repair-preview {
+    height: 220px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .ticket-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-actions {
+    flex-direction: column;
+  }
+
+  .ticket-actions select,
+  .ticket-actions input,
+  .ticket-actions button {
+    width: 100%;
+    flex: none;
+  }
+
+  .ticket-card-top {
+    gap: 8px;
+  }
+
+  .ticket-priority {
+    font-size: 9px;
+  }
+
+  .modal-image-section img {
+    height: 220px;
+  }
+
+  .repair-images img {
+    height: 190px;
+  }
+}

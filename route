@@ -1,0 +1,90 @@
+const express = require("express");
+const User = require("../models/User");
+const { auth, allowRoles } = require("../middleware/auth");
+
+const router = express.Router();
+
+// Get all technicians
+router.get("/technicians", auth, allowRoles("admin"), async (req, res) => {
+  try {
+    const technicians = await User.find({ role: "technician" })
+      .select("-password")
+      .sort({ createdAt: -1 });
+
+    res.json(technicians);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch technicians",
+      error: error.message,
+    });
+  }
+});
+
+
+// Get all users - ADMIN ONLY
+router.get("/", auth, allowRoles("admin"), async (req, res) => {
+  try {
+    const users = await User.find()
+      .select("-password")
+      .sort({ createdAt: -1 });
+
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch users",
+      error: error.message,
+    });
+  }
+});
+
+
+// Change user role - ADMIN ONLY
+router.patch("/:id/role", auth, allowRoles("admin"), async (req, res) => {
+  try {
+    const { role } = req.body;
+
+    // Only these roles are allowed
+    const allowedRoles = ["user", "technician", "admin"];
+
+    if (!allowedRoles.includes(role)) {
+      return res.status(400).json({
+        message: "Invalid role",
+      });
+    }
+
+    // Prevent admin from changing their own role
+    if (req.user.id === req.params.id) {
+      return res.status(400).json({
+        message: "You cannot change your own role",
+      });
+    }
+
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    user.role = role;
+    await user.save();
+
+    const updatedUser = await User.findById(req.params.id)
+      .select("-password");
+
+    res.json({
+      message: `User role changed to ${role}`,
+      user: updatedUser,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to change role",
+      error: error.message,
+    });
+  }
+});
+
+
+module.exports = router;
